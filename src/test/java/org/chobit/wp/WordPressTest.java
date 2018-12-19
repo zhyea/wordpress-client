@@ -7,6 +7,7 @@ import org.chobit.wp.model.response.Author;
 import org.chobit.wp.model.response.Post;
 import org.chobit.wp.model.response.UserBlog;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import static org.chobit.wp.tools.JsonKit.toJson;
 /**
  * @author robin
  */
+@Ignore
 public class WordPressTest {
 
     private WordPress wp = new WordPress(buildConfig());

@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <groupId>org.chobit.wp</groupId>
     <artifactId>wordpress-client</artifactId>
     <version>0.1-SNAPSHOT</version>
@@ -16,13 +22,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
 
     <dependencies>
         <dependency>
@@ -54,20 +53,6 @@
         </dependency>
     </dependencies>
 
-    <scm>
-        <connection>scm:git:https://github.com/zhyea/wordpress-client.git</connection>
-        <developerConnection>scm:git:https://github.com/zhyea/wordpress-client.git</developerConnection>
-        <url>https://github.com/zhyea/wordpress-client</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>robin</name>
-            <email>robin@zhyea.com</email>
-            <url>http://www.zhyea.com</url>
-        </developer>
-    </developers>
-
     <build>
         <plugins>
             <plugin>
@@ -82,66 +67,27 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <!-- Source -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- Javadoc -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.4</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- GPG -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <tag>master</tag>
+        <connection>scm:git:https://github.com/zhyea/wordpress-client.git</connection>
+        <developerConnection>scm:git:https://github.com/zhyea/wordpress-client.git</developerConnection>
+        <url>https://github.com/zhyea/wordpress-client</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>robin</name>
+            <email>robin@zhyea.com</email>
+            <url>http://www.zhyea.com</url>
+        </developer>
+    </developers>
 
 </project>

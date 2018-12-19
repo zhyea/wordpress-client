@@ -1,5 +1,6 @@
 package org.chobit.wp;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.chobit.wp.Config.*;
@@ -7,6 +8,7 @@ import static org.chobit.wp.Config.*;
 /**
  * @author robin
  */
+@Ignore
 public class ConfigTest {
 
     @Test
