@@ -16,7 +16,7 @@ public final class WordPress {
 
     private WPClient client;
 
-    public WordPress(WordPressConfig config) {
+    public WordPress(WPConfig config) {
         try {
             client = new WPClient(config);
         } catch (Exception e) {

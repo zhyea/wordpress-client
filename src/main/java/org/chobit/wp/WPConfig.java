@@ -3,7 +3,7 @@ package org.chobit.wp;
 /**
  * @author robin
  */
-public final class WordPressConfig {
+public final class WPConfig {
 
     private int blogId;
 
@@ -15,7 +15,7 @@ public final class WordPressConfig {
 
     private boolean trustAll;
 
-    WordPressConfig() {
+    WPConfig() {
     }
 
     public int getBlogId() {

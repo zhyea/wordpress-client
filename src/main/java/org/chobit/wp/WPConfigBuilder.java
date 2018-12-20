@@ -8,36 +8,36 @@ import java.util.List;
 /**
  * @author robin
  */
-public final class WordPressConfigBuilder {
+public final class WPConfigBuilder {
 
 
-    private WordPressConfig config = new WordPressConfig();
+    private WPConfig config = new WPConfig();
 
-    public WordPressConfigBuilder username(String username) {
+    public WPConfigBuilder username(String username) {
         this.config.setUsername(username);
         return this;
     }
 
 
-    public WordPressConfigBuilder password(String password) {
+    public WPConfigBuilder password(String password) {
         this.config.setPassword(password);
         return this;
     }
 
 
-    public WordPressConfigBuilder xmlRpcUrl(String xmlRpcUrl) {
+    public WPConfigBuilder xmlRpcUrl(String xmlRpcUrl) {
         this.config.setXmlRpcUrl(xmlRpcUrl);
         return this;
     }
 
 
-    public WordPressConfigBuilder trustAll(boolean trustAll) {
+    public WPConfigBuilder trustAll(boolean trustAll) {
         this.config.setTrustAll(trustAll);
         return this;
     }
 
 
-    public WordPressConfig build() {
+    public WPConfig build() {
         try {
             WPClient client = new WPClient(config.getXmlRpcUrl(), config.isTrustAll());
             List<UserBlog> list = client.getUsersBlogs(config.getUsername(), config.getPassword());

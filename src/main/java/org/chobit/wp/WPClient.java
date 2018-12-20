@@ -27,7 +27,7 @@ import java.util.List;
  */
 class WPClient {
 
-    private WordPressConfig config;
+    private WPConfig config;
 
     private XmlRpcClient client;
 
@@ -43,7 +43,7 @@ class WPClient {
     }
 
 
-    WPClient(WordPressConfig cfg) throws MalformedURLException {
+    WPClient(WPConfig cfg) throws MalformedURLException {
         this(cfg.getXmlRpcUrl(), cfg.isTrustAll());
         this.config = cfg;
     }

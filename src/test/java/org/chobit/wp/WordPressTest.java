@@ -102,8 +102,8 @@ public class WordPressTest {
     }
 
 
-    private WordPressConfig buildConfig() {
-        return new WordPressConfigBuilder()
+    private WPConfig buildConfig() {
+        return new WPConfigBuilder()
                 .username(USERNAME)
                 .password(PASSWORD)
                 .xmlRpcUrl(XML_RPC_URL)
