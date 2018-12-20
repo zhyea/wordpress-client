@@ -31,9 +31,9 @@ public class WordPressTest {
     }
 
     @Test
-    public void getUsersBlogs() {
+    public void getUsersBlogs() throws JsonProcessingException {
         List<UserBlog> list = wp.getUsersBlogs();
-        System.out.println(list);
+        System.out.println(toJson(list));
         Assert.assertFalse(list.isEmpty());
     }
 
@@ -44,9 +44,9 @@ public class WordPressTest {
     }
 
     @Test
-    public void getAuthors() {
+    public void getAuthors() throws JsonProcessingException {
         List<Author> list = wp.getAuthors();
-        System.out.println(list);
+        System.out.println(toJson(list));
         Assert.assertFalse(list.isEmpty());
     }
 
