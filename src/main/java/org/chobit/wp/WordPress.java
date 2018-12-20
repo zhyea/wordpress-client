@@ -14,12 +14,9 @@ import java.util.List;
  */
 public final class WordPress {
 
-    private WordPressConfig config;
-
     private WPClient client;
 
     public WordPress(WordPressConfig config) {
-        this.config = config;
         try {
             client = new WPClient(config);
         } catch (Exception e) {

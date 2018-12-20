@@ -3,7 +3,7 @@ package org.chobit.wp;
 /**
  * @author robin
  */
-final class WordPressConfig {
+public final class WordPressConfig {
 
     private int blogId;
 
