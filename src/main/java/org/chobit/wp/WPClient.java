@@ -63,9 +63,9 @@ class WPClient {
     }
 
 
-    String newPost(PostRequest post) throws XmlRpcException, IOException {
+    int newPost(PostRequest post) throws XmlRpcException, IOException {
         Object[] params = new Object[]{config.getBlogId(), config.getUsername(), config.getPassword(), post.toMap()};
-        String postId = execute("wp.newPost", params);
+        int postId = execute("wp.newPost", params, Integer.class);
         return postId;
     }
 

@@ -54,8 +54,8 @@ public class WordPressTest {
     @Test
     public void getPosts() throws JsonProcessingException {
         PostFilter f = new PostFilter();
-        f.setNumber(30);
-        List<Post> list = wp.getPosts(f);
+        f.setNumber(2);
+        List<Post> list = wp.getPosts(f,"post_title");
         System.out.println(toJson(list));
         Assert.assertFalse(list.isEmpty());
     }
@@ -71,12 +71,12 @@ public class WordPressTest {
     @Test
     public void newPost() {
         PostRequest post = new PostRequest();
-        post.setPostTitle("测试PostName" + System.currentTimeMillis());
-        post.setPostContent("这是一段测试内容：" + System.currentTimeMillis());
+        post.setPostTitle("测试PostName");
+        post.setPostContent("这是一段测试文章内容");
         post.setCategories("测试");
         post.setTags("a", "b", "c");
-        post.setPostName("abczzdddd");
-        String postId = wp.newPost(post);
+        post.setPostName("test-post-name");
+        int postId = wp.newPost(post);
         System.out.println(postId);
         Assert.assertNotNull(postId);
     }

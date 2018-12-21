@@ -69,7 +69,7 @@ WordPress实例是所有操作的基础。要创建WordPress实例我们需要�
 ```
 (为了便于查看，故用json包装了下返回结果)
 
-getAuthors()方法返回的主要是用户相关的信息：
+getAuthors()方法返回的是用户相关的信息：
 ```java
         List<Author> list = wp.getAuthors();
 ```
@@ -91,9 +91,73 @@ getAuthors()方法返回的主要是用户相关的信息：
 
 ## 新增文章
 
+新增文章可以使用newPost()方法，示例代码如下：  
+```java
+        PostRequest post = new PostRequest();
+        post.setPostTitle("测试PostName");
+        post.setPostContent("这是一段测试文章内容");
+        post.setCategories("测试");
+        post.setTags("a", "b", "c");
+        post.setPostName("test-post-name");
+        int postId = wp.newPost(post);
+```
+该方法的返回结果为postId，即文章ID。
+
+这里需要注意postName和postTitle。postTitle指的是文章标题；postName指的则是文章别名，主要在文章的url路径中使用。通常建议将postName设置为英文字符。
+
+更多发布文章的参数可以参考[XML-RPC WordPress API/Posts - newPost](https://codex.wordpress.org/XML-RPC_WordPress_API/Posts#wp.newPost)文档描述。
+
 ## 获取文章
 
+获取文章有两个方法：getPosts和getPost。前者用于获取多篇文章，后者用于根据postId来获取文章。
+
+### getPosts
+
+getPosts方法如下：
+```java
+    List<Post> getPosts(PostFilter filter, String... fields)
+```
+参数filter决定返回结果的数量、排序字段和排序方式等信息。  
+
+变长参数fields则决定了返回结果中包含哪些字段。如果要返回全部字段，可以不填。使用空字符串或其他非法字段则只返回postId。可用fields值请参考[XML-RPC WordPress API/Posts - getPost](https://codex.wordpress.org/XML-RPC_WordPress_API/Posts#Return_Values)。
+
+示例代码如下：
+```java
+        PostFilter f = new PostFilter();
+        f.setNumber(2);
+        List<Post> list = wp.getPosts(f,"post_title");
+```
+
+返回结果为：
+
+```json
+[
+    {
+        "post_id": "2174",
+        "post_title": "sbt下载加速方案"
+    },
+    {
+        "post_id": "2170",
+        "post_title": "Java 中文字符按Unicode排序"
+    }
+]
+```
+
+再次啰嗦下，正常的返回结果是一个Post实例集合，不是json字符串，这里使用json字符串只是为了便于展示。如需要获取json结果集可以自行将结果集转为json，也可以调用wp-client提供的JsonKit.toJson()进行处理。
+
+### getPost
+
+getPost方法如下：
+
+```java
+    Post getPost(int postId, String... fields) 
+```
+
+通过postId获取对应文章的信息。变长参数fields的使用请参考getPosts方法。
+
 ## 编辑文章
+
+
 
 ## 删除文章
 

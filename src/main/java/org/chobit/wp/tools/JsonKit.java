@@ -11,7 +11,6 @@ import java.io.IOException;
 /**
  * @author robin
  */
-
 public abstract class JsonKit {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -24,6 +23,7 @@ public abstract class JsonKit {
         MAPPER.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         MAPPER.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         MAPPER.setSerializationInclusion(JsonInclude.Include.NON_ABSENT);
+        MAPPER.setDefaultPropertyInclusion(JsonInclude.Include.NON_DEFAULT);
     }
 
 

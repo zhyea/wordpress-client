@@ -79,7 +79,7 @@ public final class WordPress {
     }
 
 
-    public String newPost(PostRequest post) {
+    public int newPost(PostRequest post) {
         try {
             return client.newPost(post);
         } catch (Exception e) {
