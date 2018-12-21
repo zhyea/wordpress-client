@@ -94,7 +94,7 @@ getAuthors()方法返回的是用户相关的信息：
 新增文章可以使用newPost()方法，示例代码如下：  
 ```java
         PostRequest post = new PostRequest();
-        post.setPostTitle("测试PostName");
+        post.setPostTitle("测试Title");
         post.setPostContent("这是一段测试文章内容");
         post.setCategories("测试");
         post.setTags("a", "b", "c");
