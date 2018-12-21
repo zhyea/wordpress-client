@@ -167,7 +167,7 @@ getPost方法如下：
 ```
 编辑文章时需要通过PostRequest实例完成。
 
-注意，**只需要**为要修改的PostRequest属性赋值，不需修改的属性保留默认值即可。
+注意，只需要为**要修改**的PostRequest属性赋值，不需修改的属性保留默认值即可。
 
 ## 删除文章
 
@@ -180,6 +180,6 @@ getPost方法如下：
 
 # 其他
 
-wp-client目前只提供了一些WordPress的基础操作，并不能完全覆盖[WordPress XML-RPC API](https://codex.wordpress.org/XML-RPC_WordPress_API)提供的全部功能，需要后续的时间内陆续完成。  
+wp-client目前只提供了一些WordPress的基础操作，并不能完全覆盖[WordPress XML-RPC API](https://codex.wordpress.org/XML-RPC_WordPress_API)提供的全部功能，需要在后续的时间内陆续完成。  
 
 此外，因为一开始wp-client的开发只是为了自己使用，难免有些不足之处。如有想法还请抽时间[提个issue](https://github.com/zhyea/wordpress-client/issues)，或者在[我的博客](http://www.zhyea.com)上留言点出。
