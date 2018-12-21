@@ -15,10 +15,10 @@ WordPress Client是一个Java版的WordPress客户端操作库， 主要基于[W
         <dependency>
             <groupId>org.chobit.wp</groupId>
             <artifactId>wordpress-client</artifactId>
-            <version>0.1.1</version>
+            <version>x.x.x</version>
         </dependency>
 ```
-目前wp-client的版本是0.1.1。请尽量使用最新版本。
+目前wp-client的版本是0.1.2。请尽量使用最新版本。
 
 ## 创建WordPress操作实例
 
@@ -77,12 +77,12 @@ getAuthors()方法返回的是用户相关的信息：
 ```json
 [
     {
-        "user_id": "1",
+        "user_id": 1,
         "user_login": "zhyea",
         "display_name": "白42"
     },
     {
-        "user_id": "2",
+        "user_id": 2,
         "user_login": "robin",
         "display_name": "robin"
     }
@@ -133,11 +133,11 @@ getPosts方法如下：
 ```json
 [
     {
-        "post_id": "2174",
+        "post_id": 2174,
         "post_title": "sbt下载加速方案"
     },
     {
-        "post_id": "2170",
+        "post_id": 2170,
         "post_title": "Java 中文字符按Unicode排序"
     }
 ]
@@ -157,7 +157,23 @@ getPost方法如下：
 
 ## 编辑文章
 
+编辑文章调用editPost()方法。
 
+```java
+        PostRequest post = new PostRequest();
+        post.setPostTitle("测试编辑" + System.currentTimeMillis());
+        post.setPostContent("这是一段编辑后的测试内容：" + System.currentTimeMillis());
+        boolean result = wp.editPost(29, post);
+```
+编辑文章时需要通过PostRequest实例完成。
+
+注意，**只需要**为要修改的PostRequest属性赋值，不需修改的属性保留默认值即可。
 
 ## 删除文章
 
+删除文章通过调用deletePost方法并传递postId来完成。
+
+```java
+        int postId = 26;
+        boolean result = wp.deletePost(postId);
+```

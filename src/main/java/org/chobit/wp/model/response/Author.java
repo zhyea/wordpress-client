@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Author {
 
     @JsonProperty("user_id")
-    private String userId;
+    private Integer userId;
 
     @JsonProperty("user_login")
     private String userLogin;
@@ -15,12 +15,11 @@ public class Author {
     @JsonProperty("display_name")
     private String displayName;
 
-
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

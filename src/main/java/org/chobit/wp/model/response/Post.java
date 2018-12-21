@@ -9,7 +9,7 @@ import java.util.List;
 public class Post {
 
     @JsonProperty("post_id")
-    private String postId;
+    private Integer postId;
 
     @JsonProperty("post_title")
     private String postTitle;
@@ -79,11 +79,11 @@ public class Post {
     private Enclosure enclosure;
 
 
-    public String getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(String postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 
