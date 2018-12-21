@@ -177,3 +177,9 @@ getPost方法如下：
         int postId = 26;
         boolean result = wp.deletePost(postId);
 ```
+
+# 其他
+
+wp-client目前只提供了一些WordPress的基础操作，并不能完全覆盖[WordPress XML-RPC API](https://codex.wordpress.org/XML-RPC_WordPress_API)提供的全部功能，需要后续的时间内陆续完成。  
+
+此外，因为一开始wp-client的开发只是为了自己使用，难免有些不足之处。如有想法还请抽时间[提个issue](https://github.com/zhyea/wordpress-client/issues)，或者在[我的博客](http://www.zhyea.com)上留言点出。
