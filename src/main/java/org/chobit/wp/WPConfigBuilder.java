@@ -46,7 +46,6 @@ public final class WPConfigBuilder {
             }
             UserBlog ub = list.get(0);
             this.config.setBlogId(ub.getBlogId());
-            this.config.setXmlRpcUrl(config.getXmlRpcUrl());
             return config;
         } catch (Exception e) {
             throw new WPClientException("Error in wp config, please check", e);
