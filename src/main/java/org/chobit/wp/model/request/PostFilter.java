@@ -3,6 +3,9 @@ package org.chobit.wp.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author robin
+ */
 public class PostFilter extends Request {
 
     @JsonProperty("post_type")

@@ -6,6 +6,9 @@ import org.chobit.wp.model.interval.Enclosure;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author robin
+ */
 public class Post {
 
     @JsonProperty("post_id")

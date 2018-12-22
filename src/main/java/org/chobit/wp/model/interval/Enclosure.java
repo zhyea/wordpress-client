@@ -1,5 +1,9 @@
 package org.chobit.wp.model.interval;
 
+
+/**
+ * @author robin
+ */
 public class Enclosure {
 
     private String url;

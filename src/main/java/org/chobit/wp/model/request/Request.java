@@ -9,6 +9,9 @@ import java.util.Map;
 import static org.chobit.wp.tools.JsonKit.fromJson;
 import static org.chobit.wp.tools.JsonKit.toJson;
 
+/**
+ * @author robin
+ */
 public abstract class Request {
 
     public Map<String, Object> toMap() throws IOException {

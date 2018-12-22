@@ -13,6 +13,9 @@ import java.util.Map;
 import static org.chobit.wp.enums.PostTaxonomy.CATEGORY;
 import static org.chobit.wp.enums.PostTaxonomy.TAG;
 
+/**
+ * @author robin
+ */
 public class PostRequest extends Request {
 
     public PostRequest() {

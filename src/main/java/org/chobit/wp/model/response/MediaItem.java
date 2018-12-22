@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
+/**
+ * @author robin
+ */
 public class MediaItem {
 
     @JsonProperty("attachment_id")

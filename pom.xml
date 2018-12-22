@@ -12,7 +12,7 @@
 
     <groupId>org.chobit.wp</groupId>
     <artifactId>wordpress-client</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>jar</packaging>
 
     <name>WordPress-Client</name>
