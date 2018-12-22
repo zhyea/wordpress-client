@@ -105,9 +105,9 @@ getAuthors()方法返回的是用户相关的信息：
 
 这里需要注意postName和postTitle。postTitle指的是文章标题；postName指的则是文章别名，主要在文章的url路径中使用。通常建议将postName设置为英文字符。
 
-setCategories设置的是文章分类，要求设置的分类在博客中必须已经存在，且名称需要一致。
+setCategories设置的是文章分类，如设置的分类在博客中不存在，将会按提交的分类名称创建新的分类。
 
-setTags设置的是文章标签，不要求在博客中已经存在。
+setTags设置的是文章标签，同样的，如标签在博客中不存在将会创建新的标签。
 
 更多发布文章的参数可以参考[XML-RPC WordPress API/Posts - newPost](https://codex.wordpress.org/XML-RPC_WordPress_API/Posts#wp.newPost)文档描述。
 
