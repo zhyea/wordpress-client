@@ -96,8 +96,8 @@ getAuthors()方法返回的是用户相关的信息：
         PostRequest post = new PostRequest();
         post.setPostTitle("测试Title");
         post.setPostContent("这是一段测试文章内容");
-        post.setCategories("分类1","分类2");
-        post.setTags("a", "b", "c");
+        post.addCategories("分类1","分类2");
+        post.addTags("a", "b", "c");
         post.setPostName("test-post-name");
         int postId = wp.newPost(post);
 ```
