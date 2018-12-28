@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
+import org.apache.xmlrpc.client.XmlRpcClientConfig;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.chobit.wp.exception.WPClientException;
 import org.chobit.wp.model.request.PostFilter;
@@ -32,9 +33,15 @@ class WPClient {
     private XmlRpcClient client;
 
 
-    WPClient(String xmlRpcUrl, boolean trustAll) throws MalformedURLException {
+    WPClient(String xmlRpcUrl, boolean trustAll, int connectTimeout, int readTimeout) throws MalformedURLException {
         XmlRpcClientConfigImpl c = new XmlRpcClientConfigImpl();
         c.setServerURL(new URL(xmlRpcUrl));
+        if (connectTimeout > 0) {
+            c.setConnectionTimeout(config.getConnectTimeout());
+        }
+        if (readTimeout > 0) {
+            c.setReplyTimeout(config.getReadTimeout());
+        }
         if (trustAll) {
             acceptAndCertificate();
         }
@@ -44,7 +51,8 @@ class WPClient {
 
 
     WPClient(WPConfig cfg) throws MalformedURLException {
-        this(cfg.getXmlRpcUrl(), cfg.isTrustAll());
+        this(cfg.getXmlRpcUrl(), cfg.isTrustAll(), cfg.getConnectTimeout(), cfg.getReadTimeout());
+        XmlRpcClientConfig c = this.client.getClientConfig();
         this.config = cfg;
     }
 

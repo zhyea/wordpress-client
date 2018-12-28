@@ -15,6 +15,10 @@ public final class WPConfig {
 
     private boolean trustAll;
 
+    private int connectTimeout;
+
+    private int readTimeout;
+
     WPConfig() {
     }
 
@@ -56,5 +60,21 @@ public final class WPConfig {
 
     public void setTrustAll(boolean trustAll) {
         this.trustAll = trustAll;
+    }
+
+    public int getConnectTimeout() {
+        return connectTimeout;
+    }
+
+    public void setConnectTimeout(int connectTimeout) {
+        this.connectTimeout = connectTimeout;
+    }
+
+    public int getReadTimeout() {
+        return readTimeout;
+    }
+
+    public void setReadTimeout(int readTimeout) {
+        this.readTimeout = readTimeout;
     }
 }

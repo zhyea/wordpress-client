@@ -37,9 +37,30 @@ public final class WPConfigBuilder {
     }
 
 
+    public WPConfigBuilder connectTimeout(int connectTimeout) {
+        if (connectTimeout < 0) {
+            throw new IllegalArgumentException("timeout cannot be negative");
+        }
+        this.config.setConnectTimeout(connectTimeout);
+        return this;
+    }
+
+
+    public WPConfigBuilder readTimeout(int readTimeout) {
+        if (readTimeout < 0) {
+            throw new IllegalArgumentException("timeout cannot be negative");
+        }
+        this.config.setReadTimeout(readTimeout);
+        return this;
+    }
+
+
     public WPConfig build() {
         try {
-            WPClient client = new WPClient(config.getXmlRpcUrl(), config.isTrustAll());
+            WPClient client = new WPClient(config.getXmlRpcUrl(),
+                    config.isTrustAll(),
+                    config.getConnectTimeout(),
+                    config.getReadTimeout());
             List<UserBlog> list = client.getUsersBlogs(config.getUsername(), config.getPassword());
             if (null == list || list.isEmpty()) {
                 throw new WPClientException("Error in wp config, please check");

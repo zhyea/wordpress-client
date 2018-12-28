@@ -215,7 +215,7 @@ public class PostRequest extends Request {
     }
 
     @Transient
-    public void setCategories(String... categories) {
+    public void addCategories(String... categories) {
         if (null == termsNames) {
             setTermsNames(new HashMap<>(2));
         }
@@ -225,7 +225,7 @@ public class PostRequest extends Request {
     }
 
     @Transient
-    public void setTags(String... tags) {
+    public void addTags(String... tags) {
         if (null == termsNames) {
             setTermsNames(new HashMap<>(2));
         }
