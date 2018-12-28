@@ -73,8 +73,8 @@ public class WordPressTest {
         PostRequest post = new PostRequest();
         post.setPostTitle("测试PostName");
         post.setPostContent("这是一段测试文章内容");
-        post.addCategories("测试");
-        post.addTags("a", "b", "c");
+        post.setCategories("分类");
+        post.setTags("a", "b", "c");
         post.setPostName("test-post-name");
         int postId = wp.newPost(post);
         System.out.println(postId);

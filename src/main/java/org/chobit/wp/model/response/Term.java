@@ -3,6 +3,9 @@ package org.chobit.wp.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author robin
+ */
 public class Term {
 
 
