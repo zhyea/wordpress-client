@@ -1,7 +1,5 @@
 package org.chobit.wp;
 
-import org.chobit.wp.model.request.PostRequest;
-
 import java.io.IOException;
 
 /**
@@ -10,8 +8,7 @@ import java.io.IOException;
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        PostRequest request = new PostRequest();
-        request.setPostAuthor(11);
-        System.out.println(request.toMap());
+        System.out.println((char)(0X87));
+
     }
 }

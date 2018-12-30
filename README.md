@@ -18,7 +18,7 @@ WordPress Client是一个Java版的WordPress客户端操作库， 主要基于[W
             <version>x.x.x</version>
         </dependency>
 ```
-目前wp-client的版本是0.1.2。请尽量使用最新版本。
+目前wp-client的版本是0.1.3。请尽量使用最新版本。
 
 ## 创建WordPress操作实例
 
@@ -96,8 +96,8 @@ getAuthors()方法返回的是用户相关的信息：
         PostRequest post = new PostRequest();
         post.setPostTitle("测试Title");
         post.setPostContent("这是一段测试文章内容");
-        post.addCategories("分类1","分类2");
-        post.addTags("a", "b", "c");
+        post.setCategories("分类1","分类2");
+        post.setTags("a", "b", "c");
         post.setPostName("test-post-name");
         int postId = wp.newPost(post);
 ```
