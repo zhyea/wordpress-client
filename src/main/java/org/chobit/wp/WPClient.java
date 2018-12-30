@@ -37,10 +37,10 @@ class WPClient {
         XmlRpcClientConfigImpl c = new XmlRpcClientConfigImpl();
         c.setServerURL(new URL(xmlRpcUrl));
         if (connectTimeout > 0) {
-            c.setConnectionTimeout(config.getConnectTimeout());
+            c.setConnectionTimeout(connectTimeout);
         }
         if (readTimeout > 0) {
-            c.setReplyTimeout(config.getReadTimeout());
+            c.setReplyTimeout(readTimeout);
         }
         if (trustAll) {
             acceptAndCertificate();
