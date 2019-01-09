@@ -25,13 +25,13 @@ public final class WordPress {
     }
 
     public WordPress(String xmlRpcUrl, String username, String password) {
+        WPConfig config = new WPConfigBuilder()
+                .xmlRpcUrl(xmlRpcUrl)
+                .username(username)
+                .password(password)
+                .trustAll(true)
+                .build();
         try {
-            WPConfig config = new WPConfigBuilder()
-                    .xmlRpcUrl(xmlRpcUrl)
-                    .username(username)
-                    .password(password)
-                    .trustAll(true)
-                    .build();
             client = new WPClient(config);
         } catch (Exception e) {
             throw new WPClientException("Error in creating wp client.", e);
