@@ -108,6 +108,8 @@ public class WordPressTest {
                 .password(PASSWORD)
                 .xmlRpcUrl(XML_RPC_URL)
                 .trustAll(true)
+                .connectTimeout(3 * 60 * 1000)
+                .readTimeout(3 * 60 * 1000)
                 .build();
     }
 
