@@ -157,7 +157,7 @@ getPosts方法如下：
 ]
 ```
 
-再次啰嗦下，正常的返回结果是一个Post实例集合，不是json字符串，这里使用json字符串只是为了便于展示。如需要获取json结果集可以自行将结果集转为json，也可以调用wp-client提供的JsonKit.toJson()进行处理。
+再次啰嗦下，正常的返回结果是一个Post实例集合，不是json字符串，这里使用json字符串只是为了便于展示。如需要获取json结果集可以自行将结果集转为json，也可以调用wp-client提供的JsonKit.toJson()方法进行处理。
 
 ### getPost
 
