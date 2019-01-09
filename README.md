@@ -22,22 +22,32 @@ WordPress Client是一个Java版的WordPress客户端操作库， 主要基于[W
 
 ## 创建WordPress操作实例
 
-WordPress实例是所有操作的基础。要创建WordPress实例我们需要先创建一个WPConfig实例，即WordPress配置对象。WPConfig实例构建方式如下：
+WordPress实例是所有操作的基础。简单的WordPress实例创建方式如下：
+```java
+    WordPress wp = new WordPress(XML_RPC_URL, USERNAME, PASSWORD);
+```
+* xmlRpcUrl：xmlRpc服务端地址，WordPress博客的地址通常为**博客地址 + xmlrpc.php**，如：http://www.zhyea.com/xmlrpc.php
+* username和password：登录WordPress博客后台使用的用户名和密码
+
+也可以通过WPConfig（即WordPress配置对象）来更精细化地创建WordPress实例。WPConfig实例构建方式如下：
 
 ```java
         WPConfig config =
-                new WPConfigBuilder().xmlRpcUrl(XML_RPC_URL)
-                        .username(USERNAME)
-                        .password(PASSWORD)
-                        .trustAll(true)
-                        .build();
+                        new WPConfigBuilder()
+                                .username(USERNAME)
+                                .password(PASSWORD)
+                                .xmlRpcUrl(XML_RPC_URL)
+                                .trustAll(true)
+                                .connectTimeout(3 * 60 * 1000)
+                                .readTimeout(3 * 60 * 1000)
+                                .build();
 ```
 
-不建议也不允许直接构建WPConfig实例，正确的方式是通过WPConfigBuilder来完成构建。构建中的几个重要参数如下：
+不建议也不允许直接构建WPConfig实例，正确的方式是通过WPConfigBuilder来完成构建。构建中的几个参数如下：
 
-* xmlRpcUrl：xmlRpc服务端地址，WordPress博客的地址通常为**博客地址 + xmlrpc.php**，如我的博客：http://www.zhyea.com/xmlrpc.php
-* username和password：登录WordPress博客后台使用的用户名和密码
-* trustAll：如博客未启用https，可忽略；如已启用https，建议将之设置为true，否则需要导入证书文件后再进行操作
+* trustAll：如博客未启用https，可忽略；如已启用https，建议将之设置为true，否则需要导入证书文件后再进行操作；
+* connectTimeout：连接超时时间，单位ms
+* readTimeout：响应超时时间，单位ms
 
 使用WPConfig实例来创建WordPress实例：
 
@@ -103,11 +113,11 @@ getAuthors()方法返回的是用户相关的信息：
 ```
 该方法的返回结果为postId，即文章ID。
 
-这里需要注意postName和postTitle。postTitle指的是文章标题；postName指的则是文章别名，主要在文章的url路径中使用。通常建议将postName设置为英文字符。
+* 关于postName和postTitle：postTitle指的是文章标题；postName指的则是文章别名，主要在文章的url路径中使用；通常建议将postName设置为英文字符。
 
-setCategories设置的是文章分类，如设置的分类在博客中不存在，将会按提交的分类名称创建新的分类。
+* setCategories设置的是文章分类，如设置的分类在博客中不存在，将会按提交的分类名称创建新的分类。
 
-setTags设置的是文章标签，同样的，如标签在博客中不存在将会创建新的标签。
+* setTags设置的是文章标签，同样的，如标签在博客中不存在将会创建新的标签。
 
 更多发布文章的参数可以参考[XML-RPC WordPress API/Posts - newPost](https://codex.wordpress.org/XML-RPC_WordPress_API/Posts#wp.newPost)文档描述。
 
@@ -147,7 +157,7 @@ getPosts方法如下：
 ]
 ```
 
-再次啰嗦下，正常的返回结果是一个Post实例集合，不是json字符串，这里使用json字符串只是为了便于展示。如需要获取json结果集可以自行将结果集转为json，也可以调用wp-client提供的JsonKit.toJson()进行处理。
+再次啰嗦下，正常的返回结果是一个Post实例集合，不是json字符串，这里使用json字符串只是为了便于展示。如需要获取json结果集可以自行将结果集转为json，也可以调用wp-client提供的JsonKit.toJson()方法进行处理。
 
 ### getPost
 
