@@ -18,7 +18,7 @@ WordPress Client是一个Java版的WordPress客户端操作库， 主要基于[W
             <version>x.x.x</version>
         </dependency>
 ```
-目前wp-client的版本是0.1.4。请尽量使用最新版本。
+目前wp-client的版本是0.1.5。请尽量使用最新版本。
 
 ## 创建WordPress操作实例
 
