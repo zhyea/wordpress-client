@@ -1,5 +1,7 @@
 package org.chobit.wp.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * @author robin
  */
@@ -44,5 +46,10 @@ public enum PostStatus {
 
     PostStatus(String alias) {
         this.status = alias;
+    }
+
+    @JsonValue
+    public String getStatus() {
+        return status;
     }
 }

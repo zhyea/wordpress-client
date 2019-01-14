@@ -1,6 +1,8 @@
 package org.chobit.wp.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.chobit.wp.enums.CommentStatus;
+import org.chobit.wp.enums.PingStatus;
 import org.chobit.wp.enums.PostStatus;
 import org.chobit.wp.model.interval.Enclosure;
 
@@ -25,7 +27,7 @@ public class PostRequest extends Request {
     private String postType;
 
     @JsonProperty("post_status")
-    private String postStatus = PostStatus.PUBLISH.status;
+    private PostStatus postStatus = PostStatus.PUBLISH;
 
     @JsonProperty("post_title")
     private String postTitle;
@@ -52,10 +54,10 @@ public class PostRequest extends Request {
     private String postPassword;
 
     @JsonProperty("comment_status")
-    private String commentStatus;
+    private CommentStatus commentStatus = CommentStatus.OPEN;
 
     @JsonProperty("ping_status")
-    private String pingStatus;
+    private PingStatus pingStatus = PingStatus.OPEN;
 
     private Integer sticky;
 
@@ -81,11 +83,11 @@ public class PostRequest extends Request {
         this.postType = postType;
     }
 
-    public String getPostStatus() {
+    public PostStatus getPostStatus() {
         return postStatus;
     }
 
-    public void setPostStatus(String postStatus) {
+    public void setPostStatus(PostStatus postStatus) {
         this.postStatus = postStatus;
     }
 
@@ -153,19 +155,19 @@ public class PostRequest extends Request {
         this.postPassword = postPassword;
     }
 
-    public String getCommentStatus() {
+    public CommentStatus getCommentStatus() {
         return commentStatus;
     }
 
-    public void setCommentStatus(String commentStatus) {
+    public void setCommentStatus(CommentStatus commentStatus) {
         this.commentStatus = commentStatus;
     }
 
-    public String getPingStatus() {
+    public PingStatus getPingStatus() {
         return pingStatus;
     }
 
-    public void setPingStatus(String pingStatus) {
+    public void setPingStatus(PingStatus pingStatus) {
         this.pingStatus = pingStatus;
     }
 
