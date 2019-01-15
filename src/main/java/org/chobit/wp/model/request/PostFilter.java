@@ -2,6 +2,9 @@ package org.chobit.wp.model.request;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.chobit.wp.enums.PostOrderBy;
+import org.chobit.wp.enums.PostStatus;
+import org.chobit.wp.enums.SortOrder;
 
 /**
  * @author robin
@@ -12,15 +15,15 @@ public class PostFilter extends Request {
     private String postType;
 
     @JsonProperty("post_status")
-    private String postStatus;
+    private PostStatus postStatus;
 
     private int number;
 
     private int offset;
 
-    private String orderBy;
+    private PostOrderBy orderBy;
 
-    private String order;
+    private SortOrder order;
 
 
     public String getPostType() {
@@ -31,11 +34,11 @@ public class PostFilter extends Request {
         this.postType = postType;
     }
 
-    public String getPostStatus() {
+    public PostStatus getPostStatus() {
         return postStatus;
     }
 
-    public void setPostStatus(String postStatus) {
+    public void setPostStatus(PostStatus postStatus) {
         this.postStatus = postStatus;
     }
 
@@ -55,19 +58,19 @@ public class PostFilter extends Request {
         this.offset = offset;
     }
 
-    public String getOrderBy() {
+    public PostOrderBy getOrderBy() {
         return orderBy;
     }
 
-    public void setOrderBy(String orderBy) {
+    public void setOrderBy(PostOrderBy orderBy) {
         this.orderBy = orderBy;
     }
 
-    public String getOrder() {
+    public SortOrder getOrder() {
         return order;
     }
 
-    public void setOrder(String order) {
+    public void setOrder(SortOrder order) {
         this.order = order;
     }
 }
