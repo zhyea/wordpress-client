@@ -10,9 +10,6 @@ public class Config {
     }
 
 
-    public static final Integer DEFAULT_BLOG_ID = 1;
-
-
     public static final String XML_RPC_URL = PropKit.getProp("website", System.getProperty("website"));
 
 

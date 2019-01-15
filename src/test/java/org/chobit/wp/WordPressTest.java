@@ -62,7 +62,7 @@ public class WordPressTest {
 
     @Test
     public void getPost() {
-        Post p = wp.getPost(29, "post_content");
+        Post p = wp.getPost(4090);
         System.out.println(p);
         Assert.assertNotNull(p);
     }

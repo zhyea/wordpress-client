@@ -1,6 +1,9 @@
 package org.chobit.wp.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.chobit.wp.enums.CommentStatus;
+import org.chobit.wp.enums.PingStatus;
+import org.chobit.wp.enums.PostStatus;
 import org.chobit.wp.model.interval.Enclosure;
 
 import java.util.Date;
@@ -27,7 +30,7 @@ public class Post {
     private Date postModifiedGmt;
 
     @JsonProperty("post_status")
-    private String postStatus;
+    private PostStatus postStatus;
 
     @JsonProperty("post_type")
     private String postType;
@@ -64,10 +67,10 @@ public class Post {
     private int menuOrder;
 
     @JsonProperty("comment_status")
-    private String commentStatus;
+    private CommentStatus commentStatus;
 
     @JsonProperty("ping_status")
-    private String pingStatus;
+    private PingStatus pingStatus;
 
     private boolean sticky;
 
@@ -122,11 +125,11 @@ public class Post {
         this.postModifiedGmt = postModifiedGmt;
     }
 
-    public String getPostStatus() {
+    public PostStatus getPostStatus() {
         return postStatus;
     }
 
-    public void setPostStatus(String postStatus) {
+    public void setPostStatus(PostStatus postStatus) {
         this.postStatus = postStatus;
     }
 
@@ -226,19 +229,19 @@ public class Post {
         this.menuOrder = menuOrder;
     }
 
-    public String getCommentStatus() {
+    public CommentStatus getCommentStatus() {
         return commentStatus;
     }
 
-    public void setCommentStatus(String commentStatus) {
+    public void setCommentStatus(CommentStatus commentStatus) {
         this.commentStatus = commentStatus;
     }
 
-    public String getPingStatus() {
+    public PingStatus getPingStatus() {
         return pingStatus;
     }
 
-    public void setPingStatus(String pingStatus) {
+    public void setPingStatus(PingStatus pingStatus) {
         this.pingStatus = pingStatus;
     }
 
