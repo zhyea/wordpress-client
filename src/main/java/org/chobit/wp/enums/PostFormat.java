@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum PostFormat {
     /**
+     * 标准
+     */
+    STANDARD("standard"),
+    /**
      * 特征即是没有标题的文章
      */
     ASIDE("aside"),
