@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.chobit.wp.enums.CommentStatus;
 import org.chobit.wp.enums.PingStatus;
 import org.chobit.wp.enums.PostStatus;
+import org.chobit.wp.enums.PostType;
 import org.chobit.wp.model.interval.Enclosure;
 
 import java.beans.Transient;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import static org.chobit.wp.enums.PostTaxonomy.CATEGORY;
 import static org.chobit.wp.enums.PostTaxonomy.TAG;
+import static org.chobit.wp.enums.PostType.POST;
 
 /**
  * @author robin
@@ -24,7 +26,7 @@ public class PostRequest extends Request {
     }
 
     @JsonProperty("post_type")
-    private String postType;
+    private String postType = POST.type;
 
     @JsonProperty("post_status")
     private PostStatus postStatus = PostStatus.PUBLISH;
@@ -81,6 +83,10 @@ public class PostRequest extends Request {
 
     public void setPostType(String postType) {
         this.postType = postType;
+    }
+
+    public void setPostType(PostType postType) {
+        this.postType = postType.type;
     }
 
     public PostStatus getPostStatus() {
