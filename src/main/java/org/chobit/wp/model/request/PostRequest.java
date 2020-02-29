@@ -137,6 +137,10 @@ public class PostRequest extends Request {
         this.postDateGmt = postDateGmt;
     }
 
+    public void setPostDateGmt(long postTime) {
+        this.setPostDateGmt(new Date(postTime));
+    }
+
     public String getPostFormat() {
         return postFormat;
     }
