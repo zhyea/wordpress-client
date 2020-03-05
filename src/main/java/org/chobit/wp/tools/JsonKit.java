@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 /**
  * @author robin
@@ -24,6 +25,10 @@ public abstract class JsonKit {
         MAPPER.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         MAPPER.setSerializationInclusion(JsonInclude.Include.NON_ABSENT);
         MAPPER.setDefaultPropertyInclusion(JsonInclude.Include.NON_DEFAULT);
+
+        SimpleDateFormat defaultDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        MAPPER.setDateFormat(defaultDateFormat);
     }
 
 

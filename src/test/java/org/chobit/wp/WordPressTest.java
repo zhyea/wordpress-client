@@ -76,6 +76,7 @@ public class WordPressTest {
         post.setCategories("分类");
         post.setTags("a", "b", "c");
         post.setPostName("test-post-name");
+        post.setPostDateGmt(System.currentTimeMillis());
         int postId = wp.newPost(post);
         System.out.println(postId);
         Assert.assertNotNull(postId);
