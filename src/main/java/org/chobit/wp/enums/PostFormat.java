@@ -20,7 +20,7 @@ public enum PostFormat {
      */
     LINK("link"),
     /**
-     * 一个图片，文章中的第一个<img/>标签
+     * 一个图片，文章中的第一个img标签
      */
     IMAGE("image"),
     /**
