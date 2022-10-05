@@ -20,7 +20,7 @@
     <url>https://github.com/zhyea/wordpress-client</url>
 
     <properties>
-        <jackson.version>2.10.5.1</jackson.version>
+        <jackson.version>2.12.6.1</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
